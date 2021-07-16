@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="//cdn.materialdesignicons.com/5.4.55/css/materialdesignicons.min.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="assets/style/main.css">
@@ -22,43 +23,24 @@
         </nav>
     </header>
     <main class="container">
-        <form onsubmit="" class="row">
-            <div class="form-group col-6">
-                <label for="list-name">List Name</label>
-                <input type="text" class="form-control" name="name" id="name" placeholder="name">
-            </div>
-            <div class="form-group col-6">
-                <label for="color">Color</label>
-                <input type="color" class="form-control" name="color" id="color" placeholder="color">
-            </div>
-        </form>
+        <div class="row">
+            <form onsubmit="" class="col-8 d-flex justify-content-left">
+                <div class="form-group">
+                    <label for="list-name">List Name</label>
+                    <input type="text" class="form-control" name="name" id="name" placeholder="name">
+                </div>
+                <div class="form-group">
+                    <label for="color">Color</label>
+                    <input type="color" class="form-control" name="color" id="color" placeholder="color">
+                </div>
+                <div class="d-flex align-items-center">
+                    <button type="submit" class="btn btn-success mt-3">ADD</button>
+                </div>
+            </form>
         </div>
         </div>
         <div class="row" id="lists">
             <!-- inserts Task lists as col-4 elements -->
-            <div class="col-4 mt-3">
-                <div class="bg-light rounded shadow-light">
-                    <div
-                        class="d-flex justify-content-around align-items-center rounded-top text-light text-center p-3 bg-dark">
-                        <h3>LIST NAME</h3>
-                        <i class="fa fa-trash action text-danger" title="delete list"></i>
-                    </div>
-                    <div class="p-2 ">
-                        <p><b>Tasks: </b></p>
-                        <ul class="bg-gray lighten-40 p-2 pl-4">
-                            <li>TASK 1</li>
-                            <li>TASK 2</li>
-                            <li>TASK 3</li>
-                            <li>TASK 4</li>
-                        </ul>
-                    </div>
-                    <form onsubmit="">
-                        <input type="text" name="task" placeholder="Add task..." required maxlength="20">
-                        <button type="submit" class="btn btn-outline-success">+</button>
-                    </form>
-                </div>
-            </div>
-
         </div>
     </main>
     <footer class="bg-dark text-light">
