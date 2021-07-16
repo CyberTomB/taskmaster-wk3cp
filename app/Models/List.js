@@ -26,7 +26,7 @@ export default class List {
                   ${this.MyTasks}
                </form>
             </div>
-            <form onsubmit="">
+            <form onsubmit="app.listsController.addTask('${this.id}')">
                <input type="text" name="task" placeholder="Add task..." required maxlength="20">
                <button type="submit" class="btn btn-outline-success">+</button>
             </form>

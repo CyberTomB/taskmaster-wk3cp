@@ -26,6 +26,16 @@ export default class ListsController {
       form.reset()
    }
 
+   addTask(listId) {
+      event.preventDefault()
+      let form = event.target
+      let rawTask = {
+         name: form.task.value,
+         listId: listId,
+      }
+      listsService.addTask(rawTask)
+      form.reset()
+   }
    removeTask(taskId) {
       listsService.removeTask(taskId)
    }
