@@ -1,3 +1,4 @@
+import { ProxyState } from "../AppState.js"
 import { generateId } from "../Utils/GenerateId.js"
 
 export default class List {
@@ -6,6 +7,7 @@ export default class List {
       this.name = name.toUpperCase()
       this.color = color
       this.id = id
+      this.tasksId = `tasks-${id}`
    }
 
    get Template() {
@@ -17,14 +19,11 @@ export default class List {
                <h5>${this.name}</h5>
                <i class="mdi mdi-delete btn text-danger" title="delete list"></i>
             </div>
-            <div class="p-2 ">
+            <div class="p-2">
                <p><b>Tasks: </b></p>
-               <ul class="bg-gray lighten-40 p-2 pl-4">
-                  <li>TASK 1</li>
-                  <li>TASK 2</li>
-                  <li>TASK 3</li>
-                  <li>TASK 4</li>
-               </ul>
+               <form class="p-2 pl-4" id="${this.tasksId}">
+                  ${this.MyTasks}
+               </form>
             </div>
             <form onsubmit="">
                <input type="text" name="task" placeholder="Add task..." required maxlength="20">
@@ -33,5 +32,17 @@ export default class List {
          </div>
       </div>
    `
+   }
+
+   get MyTasks() {
+      let template = ''
+      let tasks = ProxyState.tasks.filter(task => task.listId === this.id)
+      tasks.forEach(t => {
+         template += t.Template
+      })
+      if (!template) {
+         template += "No Tasks"
+      }
+      return template
    }
 }

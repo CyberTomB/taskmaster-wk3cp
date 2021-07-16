@@ -53,20 +53,19 @@
                     </div>
                     <div class="p-2 ">
                         <p><b>Tasks: </b></p>
-                        <ul class="bg-gray lighten-40 p-2 pl-4">
-                            <li>TASK 1</li>
-                            <li>TASK 2</li>
-                            <li>TASK 3</li>
-                            <li>TASK 4</li>
-                        </ul>
+                        <form class="p-2 pl-4" id="tasks">
+                            <input type="checkbox" id="task1" name="task1">
+                            <label for="task1">TASK 1</label><br>
+                            <input type="checkbox" id="task2" name="task2">
+                            <label for="task2">TASK 2</label><br>
+                        </form>
+                        <form onsubmit="">
+                            <input type="text" name="task" placeholder="Add task..." required maxlength="20">
+                            <button type="submit" class="btn btn-outline-success">+</button>
+                        </form>
                     </div>
-                    <form onsubmit="">
-                        <input type="text" name="task" placeholder="Add task..." required maxlength="20">
-                        <button type="submit" class="btn btn-outline-success">+</button>
-                    </form>
                 </div>
             </div>
-        </div>
     </main>
     <footer class="bg-dark text-light">
         <div class="text-center">
