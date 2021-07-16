@@ -11,6 +11,7 @@ export default class ListsController {
 
    constructor() {
       ProxyState.on('lists', _draw)
+      ProxyState.on('tasks', _draw)
       _draw()
    }
 
@@ -23,5 +24,9 @@ export default class ListsController {
       }
       listsService.createList(rawList)
       form.reset()
+   }
+
+   removeTask(taskId) {
+      listsService.removeTask(taskId)
    }
 }

@@ -14,7 +14,11 @@ class AppState extends EventEmitter {
 
   tasks = [
     new Task({
-      name: 'eat food',
+      name: 'Example Task',
+      listId: 'example',
+    }),
+    new Task({
+      name: 'Example Task 2',
       listId: 'example',
     })
   ]
