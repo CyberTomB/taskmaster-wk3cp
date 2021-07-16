@@ -4,9 +4,10 @@ import List from "./Models/List.js"
 
 class AppState extends EventEmitter {
   lists = [
-    new List(
-      'NEW LIST'
-    )
+    new List({
+      name: 'new list',
+      color: '#000000'
+    })
   ]
 }
 

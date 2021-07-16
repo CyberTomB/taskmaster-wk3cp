@@ -2,8 +2,9 @@ import { generateId } from "../Utils/GenerateId.js"
 
 export default class List {
 
-   constructor(name, id = generateId()) {
-      this.name = name
+   constructor({ name, color, id = generateId() }) {
+      this.name = name.toUpperCase()
+      this.color = color
       this.id = id
    }
 
@@ -12,9 +13,9 @@ export default class List {
       <div class="col-4 mt-3" id="${this.id}">
          <div class="bg-light rounded shadow-light">
             <div
-            class="d-flex justify-content-around align-items-center rounded-top text-light text-center p-3 bg-dark">
-               <h3>${this.name}</h3>
-               <i class="mdi mdi-delete action text-danger" title="delete list"></i>
+            class="d-flex justify-content-around align-items-center rounded-top text-light text-center p-3" style="background-color: ${this.color}">
+               <h5>${this.name}</h5>
+               <i class="mdi mdi-delete btn text-danger" title="delete list"></i>
             </div>
             <div class="p-2 ">
                <p><b>Tasks: </b></p>

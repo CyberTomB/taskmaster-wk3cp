@@ -24,23 +24,48 @@
     </header>
     <main class="container">
         <div class="row">
-            <form onsubmit="" class="col-8 d-flex justify-content-left">
-                <div class="form-group">
-                    <label for="list-name">List Name</label>
-                    <input type="text" class="form-control" name="name" id="name" placeholder="name">
-                </div>
-                <div class="form-group">
-                    <label for="color">Color</label>
-                    <input type="color" class="form-control" name="color" id="color" placeholder="color">
-                </div>
-                <div class="d-flex align-items-center">
-                    <button type="submit" class="btn btn-success mt-3">ADD</button>
-                </div>
-            </form>
+            <div class="col-8">
+                <form onsubmit="app.listsController.createList()" class="d-flex justify-content-left">
+                    <div class="form-group">
+                        <label for="name">List Name</label>
+                        <input type="text" class="form-control" name="name" id="name" placeholder="name" required
+                            minlength="3" maxlength="25">
+                    </div>
+                    <div class="form-group">
+                        <label for="color">Color</label>
+                        <input type="color" class="form-control" name="color" id="color" placeholder="color">
+                    </div>
+                    <div class="d-flex align-items-center">
+                        <button type="submit" class="btn btn-success mt-3">ADD</button>
+                    </div>
+                </form>
+            </div>
         </div>
         </div>
         <div class="row" id="lists">
             <!-- inserts Task lists as col-4 elements -->
+            <div class="col-4 mt-3" id="example-list">
+                <div class="bg-light rounded shadow-light">
+                    <div class="d-flex justify-content-around align-items-center rounded-top text-light text-center p-3"
+                        style="background-color: #000000;">
+                        <h3>EXAMPLE</h3>
+                        <i class="mdi mdi-delete btn text-danger" title="delete list" onclick=""></i>
+                    </div>
+                    <div class="p-2 ">
+                        <p><b>Tasks: </b></p>
+                        <ul class="bg-gray lighten-40 p-2 pl-4">
+                            <li>TASK 1</li>
+                            <li>TASK 2</li>
+                            <li>TASK 3</li>
+                            <li>TASK 4</li>
+                        </ul>
+                    </div>
+                    <form onsubmit="">
+                        <input type="text" name="task" placeholder="Add task..." required maxlength="20">
+                        <button type="submit" class="btn btn-outline-success">+</button>
+                    </form>
+                </div>
+            </div>
         </div>
     </main>
     <footer class="bg-dark text-light">

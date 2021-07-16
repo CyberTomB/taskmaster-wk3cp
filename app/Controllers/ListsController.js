@@ -1,4 +1,5 @@
 import { ProxyState } from "../AppState.js";
+import { listsService } from "../Services/ListsService.js";
 
 function _draw() {
    let template = ''
@@ -11,5 +12,16 @@ export default class ListsController {
    constructor() {
       ProxyState.on('lists', _draw)
       _draw()
+   }
+
+   createList() {
+      event.preventDefault()
+      let form = event.target
+      let rawList = {
+         name: form.name.value,
+         color: form.color.value
+      }
+      listsService.createList(rawList)
+      form.reset()
    }
 }

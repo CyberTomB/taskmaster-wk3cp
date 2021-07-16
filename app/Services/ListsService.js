@@ -1,4 +1,5 @@
 import { ProxyState } from "../AppState.js"
+import List from "../Models/List.js"
 
 class ListsService {
 
