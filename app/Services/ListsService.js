@@ -11,6 +11,10 @@ class ListsService {
       ProxyState.tasks = ProxyState.tasks.filter(task => task.id != taskId)
    }
 
+   removeList(id) {
+      ProxyState.lists = ProxyState.lists.filter(list => list.id != id)
+   }
+
 }
 
 export const listsService = new ListsService()

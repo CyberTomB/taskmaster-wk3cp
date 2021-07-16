@@ -17,7 +17,8 @@ export default class List {
             <div
             class="d-flex justify-content-around align-items-center rounded-top text-light text-center p-3" style="background-color: ${this.color}">
                <h5>${this.name}</h5>
-               <i class="mdi mdi-delete btn text-danger" title="delete list" onclick="console.log('${this.id}')"></i>
+               <i class="mdi mdi-delete btn text-danger" title="delete list" onclick="
+               app.listsController.removeList('${this.id}')"></i>
             </div>
             <div class="p-2">
                <p><b>Tasks: </b></p>

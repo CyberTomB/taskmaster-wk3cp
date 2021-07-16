@@ -29,4 +29,8 @@ export default class ListsController {
    removeTask(taskId) {
       listsService.removeTask(taskId)
    }
+
+   removeList(id) {
+      listsService.removeList(id)
+   }
 }
