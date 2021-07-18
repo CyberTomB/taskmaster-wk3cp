@@ -37,10 +37,14 @@ export default class ListsController {
       form.reset()
    }
    removeTask(taskId) {
-      listsService.removeTask(taskId)
+      if (window.confirm("Are you sure you want to delete this?")) {
+         listsService.removeTask(taskId)
+      }
    }
 
    removeList(id) {
-      listsService.removeList(id)
+      if (window.confirm("Are you sure you want to delete this?")) {
+         listsService.removeList(id)
+      }
    }
 }

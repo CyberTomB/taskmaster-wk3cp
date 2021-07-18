@@ -10,7 +10,7 @@ export default class Task {
 
    get Template() {
       return `
-      <input type="checkbox" id="${this.id}" name="${this.name}" onclick="">
+      <input type="checkbox" id="${this.id}" name="${this.name}" onclick="app.tasksController.isTaskChecked('${this.id}')">
       <label for="${this.name}">${this.name}
          <i class="btn mdi mdi-delete" onclick="app.listsController.removeTask('${this.id}')">
       </i></label>
