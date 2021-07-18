@@ -48,4 +48,8 @@ export default class ListsController {
          listsService.removeList(id)
       }
    }
+
+   _listsLog() {
+      console.log(ProxyState.lists)
+   }
 }

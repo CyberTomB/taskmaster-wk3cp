@@ -1,13 +1,44 @@
 import { ProxyState } from "../AppState.js"
 import { generateId } from "../Utils/GenerateId.js"
 
-export default class List {
 
+
+export default class List {
    constructor({ name, color, id = generateId() }) {
       this.name = name.toUpperCase()
       this.color = color
       this.id = id
       this.tasksId = `tasks-${id}`
+      this.tasksTotal = 0
+      this.tasksChecked = 0
+   }
+
+   //REVIEW How to get the tasksTotal to update first before drawing to page?
+
+   get TasksCounter() {
+      let template = ''
+      let tasks = ProxyState.tasks.filter(task => task.listId === this.id)
+      let tasksNum = 0
+      let tasksCheckedNum = 0
+      tasks.forEach(t => {
+         tasksNum += 1
+         t.checked ? tasksCheckedNum += 1 : tasksCheckedNum += 0
+         this.tasksTotal = tasksNum
+         this.tasksChecked = tasksCheckedNum
+      })
+      template = `(${tasksCheckedNum}/${tasksNum})`
+      return template
+   }
+   get MyTasks() {
+      let template = ''
+      let tasks = ProxyState.tasks.filter(task => task.listId === this.id)
+      tasks.forEach(t => {
+         template += t.Template
+      })
+      if (!template) {
+         template += "No Tasks"
+      }
+      return template
    }
 
    get Template() {
@@ -21,7 +52,7 @@ export default class List {
                app.listsController.removeList('${this.id}')"></i>
             </div>
             <div class="p-2">
-               <p><b>Tasks: </b></p>
+               <p><b>Tasks ${this.TasksCounter}: </b></p>
                <form class="p-2 pl-4" id="${this.tasksId}">
                   ${this.MyTasks}
                </form>
@@ -35,15 +66,4 @@ export default class List {
    `
    }
 
-   get MyTasks() {
-      let template = ''
-      let tasks = ProxyState.tasks.filter(task => task.listId === this.id)
-      tasks.forEach(t => {
-         template += t.Template
-      })
-      if (!template) {
-         template += "No Tasks"
-      }
-      return template
-   }
 }
