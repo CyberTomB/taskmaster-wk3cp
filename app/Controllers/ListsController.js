@@ -2,6 +2,7 @@ import { ProxyState } from "../AppState.js";
 import { listsService } from "../Services/ListsService.js";
 
 function _draw() {
+   console.log('I heard that')
    let template = ''
    let lists = ProxyState.lists
    lists.forEach(list => template += list.Template)
