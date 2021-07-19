@@ -1,11 +1,11 @@
 import { generateId } from "../Utils/GenerateId.js";
 
 export default class Task {
-   constructor({ name, listId, id = generateId() }) {
+   constructor({ name, listId, id = generateId(), checked }) {
       this.id = id
       this.listId = listId
       this.name = name
-      this.checked = false
+      this.checked = checked
    }
 
 

@@ -33,6 +33,7 @@ export default class List {
       let template = ''
       let tasks = ProxyState.tasks.filter(task => task.listId === this.id)
       tasks.forEach(t => {
+         console.log('is task checked?', t.id, t.checked)
          template += t.Template
       })
       if (!template) {

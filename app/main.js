@@ -5,11 +5,11 @@ import Tests from "./Utils/test.js";
 
 
 class App {
+  storage = new StorageController()
   listsController = new ListsController()
   tasksController = new TasksController()
 
   test = new Tests()
-  storage = new StorageController()
 }
 
 window["app"] = new App();
